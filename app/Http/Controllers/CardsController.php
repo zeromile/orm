@@ -20,14 +20,6 @@ class CardsController extends Controller
         return view('cards.index', compact('cards'));
     }
 
-    public function notes()
-    {
-        //$notes = DB::table('notes')->get();
-
-        $notes = App\Note::all();
-
-        return view('cards.notes', compact('notes'));
-    }
 
     public function show(Card $card)
     {

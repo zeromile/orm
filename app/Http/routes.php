@@ -12,9 +12,8 @@
 */
 
 Route::get('/', 'CardsController@index');
-Route::get('notes', 'CardsController@notes');
 Route::get('show/{card}', 'CardsController@show');
-
+Route::post('cards/{card}/notes','NotesController@store');
 
 /*
 |--------------------------------------------------------------------------
