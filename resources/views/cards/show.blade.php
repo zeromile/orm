@@ -5,9 +5,6 @@
 @endsection
 
 @section('content')
-    <pre>
-    <?php /* print_r($card); */ ?>
-    </pre>
 
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -17,7 +14,7 @@
             </h3>
             <ul class="list-group">
                 @foreach($card->notes as $note)
-                    <li class="list-group-item"> {{ $note->body }}</li>
+                    <li class="list-group-item"> {{ $note->body }} <a class="btn pull-right" href="/notes/{{$note->id}}/edit">EDIT</a></li>
                 @endforeach
             </ul>
             <hr>

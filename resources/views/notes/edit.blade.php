@@ -11,6 +11,8 @@
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Update note</button>
+            <a href="/show/{{ $note->card_id }}" class="btn btn-primary">Return to card</a>
+
         </div>
     </form>
 
