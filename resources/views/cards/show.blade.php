@@ -14,9 +14,14 @@
             </h3>
             <ul class="list-group">
                 @foreach($card->notes as $note)
-                    <li class="list-group-item"> {{ $note->body }} <a class="btn pull-right" href="/notes/{{$note->id}}/edit">EDIT</a></li>
+                    <li class="list-group-item">
+                        {{ $note->body }}
+                        <a class="btn pull-right" href="/notes/{{$note->id}}/edit">EDIT</a>
+                        <a href="#">{{ $note->user->username }}</a>
+                    </li>
                 @endforeach
             </ul>
+            @helloWorld
             <hr>
             <form method="POST" action="/cards/{{ $card->id }}/notes">
                 <div class="form-group">
