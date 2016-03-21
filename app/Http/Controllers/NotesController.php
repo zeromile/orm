@@ -13,47 +13,49 @@ class NotesController extends Controller
 {
     public function store(Request $request, Card $card)
     {
-        //return $request->all();
-        //return $card;
-
-        //method 1
-//        $note = new Note;
-//        $note->body = $request->body;
-//        $card->notes()->save($note);
-
-        //method 2
-        // requires that
-        //     protected $fillable = ['body'];
-        // is added to the Note model to allow the 'body' to be fillable
-//        $card->notes()->save(
-//            new Note(['body' => $request->body])
-//        );
-
-        //method 3
-        // requires that
-        //     protected $fillable = ['body'];
-        // is added to the Note model to allow the 'body' to be fillable
-//        $card->notes()->create([
-//            'body' => $request->body
-//        ]);
-
-        //method 4
-        // request-all returns array of all
-        // normally this would be dangerous because we can't
-        // control everything that is being submitted
-        // but because we have limited the $fillable to 'body' we are safe
-//        $card->notes()->create($request->all());
-
-        //method 5
-//        $card->addNote($note);
-
-        //method6
-        // This requires creating a method in the model
         $card->addNote(
             new Note($request->all())
         );
 
         return back();
+
+        //previous methods...
+        //return $request->all();
+        //return $card;
+        //-----------
+        //method 1
+        //        $note = new Note;
+        //        $note->body = $request->body;
+        //        $card->notes()->save($note);
+        //-----------
+        //method 2
+        // requires that
+        //     protected $fillable = ['body'];
+        // is added to the Note model to allow the 'body' to be fillable
+        //        $card->notes()->save(
+        //            new Note(['body' => $request->body])
+        //        );
+        //-----------
+        //method 3
+        // requires that
+        //     protected $fillable = ['body'];
+        // is added to the Note model to allow the 'body' to be fillable
+        //        $card->notes()->create([
+        //            'body' => $request->body
+        //        ]);
+        //-----------
+        //method 4
+        // request-all returns array of all
+        // normally this would be dangerous because we can't
+        // control everything that is being submitted
+        // but because we have limited the $fillable to 'body' we are safe
+        //        $card->notes()->create($request->all());
+        //-----------
+        //method 5
+        // $card->addNote($note);
+        //-----------
+        //method6
+        // This requires creating a method called addNote in the model
     }
 
     public function edit(Note $note)

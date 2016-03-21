@@ -17,7 +17,7 @@
                     <li class="list-group-item">
                         {{ $note->body }}
                         <a class="btn pull-right" href="/notes/{{$note->id}}/edit">EDIT</a>
-                        <a href="#">{{ $note->user->username }}</a>
+                        <a href="#" class="pull-right">{{ $note->user->username }}</a>
                     </li>
                 @endforeach
             </ul>
